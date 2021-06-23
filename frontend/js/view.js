@@ -31,12 +31,24 @@ class View {
     static signIn() {
         View.displayHeader(main);
         main.innerHTML = /*html*/ `
-            <form method="post" onsubmit="Controller.signIn(this);return false;">
-                <input type="email" name="email" required placeholder="E-mail" >  
-                <input type="password" name="password" required placeholder="Mot de passe" value="Ilboued1%$">  
-                <input type="submit" name="Inscription" value="Se connecter">
+        <div class="page">
+        <div id="box">
+            <form method="post" action="">
+                <h1>LOGIN</h1>
+            
+                <div class="champ">
+                    <input type="email" name=" email" placeholder="E-mail" />
+                </div> 
+                <div class="champ">
+                    <input :type="leType" name="pass" placeholder="Password" />
+                    <i v-if="EyeClose" class="far fa-eye-slash item" @click="voir"></i>
+                    <i v-if="EyeOpen" class="far fa-eye item" @click="cacher"></i>
+                </div>   
+                <input type="submit" value="Entrer" />
             </form>
-            <button onclick="View.signUp(this)">S'inscrire</button>
+            <a href="compte.html">Pas encore membre ?</a>
+        </div>
+    </div>
        `;
     }
     static showError(errorText) {

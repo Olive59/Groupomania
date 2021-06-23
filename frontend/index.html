@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css" />
@@ -10,46 +10,24 @@
 </head>
 
 <header class="logo">
-   <a class="big" href="index.html"><img src="header.png" alt=""></a>
+   <a class="big" href="index.html"><img src="images/header.png" alt="logo de groupomania"></a>
 </header>
 <body>
 
-<div class="page">
-    <div id="articleWall">
-        <a href="articleSeul.html">
-        <div class="articleBox">
-            <div>
-                <div class="infoUser marginBottom">   
-                    <img src="2.png" alt="">
-                    <p>Olivier</p>
-                    
-                    <p>il y a 20 minutes
+    <main></main>
 
-                    </p>
-                </div>    
-        </div>
-            <div class="colorText center marginBottom">titre</div>
-            <div class="imageText">
-                <img class="imgImport" src="icon7.png" alt="">
-            <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
-             minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
-              sequi adipisci.
-            </div>
-            
-            </div>
-        </div>
-    </a>
-            
-        
-    </div>
-    
-</div>
-<a href="articleCreation.html">Créer votre article </a>
-<script src="vue.min.js"></script>
-<script src="script.js"></script>
+    <script src="./js/Model.js"></script>
+    <script src="./js/View.js"></script>
+    <script src="./js/Controller.js"></script>
+    <script src="vue.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      Controller.wall();
+    </script>  
+
+
 </body>
 <footer class="logo">
-<img class="big" src="header.png" alt="">
+<img class="big" src="images/header.png" alt="logo de groupomania">
 </footer>
 </html>
