@@ -9,7 +9,10 @@ class View {
                
             `;
         } else {
-            document.querySelector("header").innerHTML = ``;
+            document.querySelector("header").innerHTML = /*html*/ 
+                `<header class="logo">
+                <a class="big" href="index.html"><img src="images/header.png" alt="logo de groupomania"></a>
+                </header>`;
         }
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -18,13 +21,25 @@ class View {
     static signUp() {
         View.displayHeader(main);
         main.innerHTML = /*html*/ `
-            <form method="post" onsubmit="Controller.signUp(this);return false;">
-                <input type="text" name="name" required pattern="[A-Za-z \-'À-ÿ]{2,102}" placeholder="Nom" value="Bruno Paulet">  
-                <input type="text" name="alias" required pattern="[A-Za-z \-'À-ÿ]{2,102}" placeholder="Alias" value="Bubulle">  
-                <input type="email" name="email" required placeholder="E-mail" value="bruno@forumfamilia.net">  
-                <input type="password" name="password" required placeholder="Mot de passe" value="Ilboued1%$">  
-                <input type="submit" name="Inscription" value="S'inscrire">
+        <div class="page">
+        <div id="box">
+            <form method="post" action="">
+                
+                <h2>Créer un compte</h2>                
+                
+                <div class="champ">
+                    <input type="pseudo" name=" pseudo" placeholder="Pseudo" />
+                </div> 
+                <div class="champ">
+                    <input type="email" name=" email" placeholder="E-mail" />
+                </div> 
+                <div class="champ">
+                    <input :type="leType" name="pass" placeholder="Password" />
+                    
+                </div>                 
             </form>
+        </div>
+        </div>
             <button onclick="View.signIn(this)">Se connecter</button>
        `;
     }
@@ -41,12 +56,12 @@ class View {
                 </div> 
                 <div class="champ">
                     <input :type="leType" name="pass" placeholder="Password" />
-                    <i v-if="EyeClose" class="far fa-eye-slash item" @click="voir"></i>
-                    <i v-if="EyeOpen" class="far fa-eye item" @click="cacher"></i>
+                    <i class="far fa-eye-slash item"></i>
+                    <i class="far fa-eye item"></i>
                 </div>   
                 <input type="submit" value="Entrer" />
             </form>
-            <a href="compte.html">Pas encore membre ?</a>
+            <button onclick="View.signUp(this)">Pas encore membre ?</button>
         </div>
     </div>
        `;
