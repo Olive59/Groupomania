@@ -40,7 +40,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/comments', commentRoutes);
 app.use('/api/article', articleRoutes);
-app.use('/api/auth', userRoutes);
+app.use('/api/user', userRoutes);
 
 
 module.exports = app;

@@ -6,10 +6,9 @@ class View {
                 <button onclick="Controller.wall();">Home</button>
                 <button onclick="Controller.createArticle();">Ecrire un article</button>
                 <button onclick="Controller.logout();">Déconnexion</button>
-               
             `;
         } else {
-            document.querySelector("header").innerHTML = /*html*/ 
+            document.querySelector("header").innerHTML = /*html*/
                 `<header class="logo">
                 <a class="big" href="index.html"><img src="images/header.png" alt="logo de groupomania"></a>
                 </header>`;
@@ -22,48 +21,49 @@ class View {
         View.displayHeader(main);
         main.innerHTML = /*html*/ `
         <div class="page">
-        <div id="box">
-            <form method="post" action="">
-                
-                <h2>Créer un compte</h2>                
-                
-                <div class="champ">
-                    <input type="pseudo" name=" pseudo" placeholder="Pseudo" />
-                </div> 
-                <div class="champ">
-                    <input type="email" name=" email" placeholder="E-mail" />
-                </div> 
-                <div class="champ">
-                    <input :type="leType" name="pass" placeholder="Password" />
+            <div id="box">
+                <form method="post" onsubmit="Controller.signUp(this); return false;">
                     
-                </div>                 
-            </form>
-        </div>
-        </div>
-            <button onclick="View.signIn(this)">Se connecter</button>
+                    <h2>Créer un compte</h2>                
+                    
+                    <div class="champ">
+                        <input type="text" name="user_name" placeholder="Votre nom" />
+                    </div> 
+                    <div class="champ">
+                        <input type="email" name="email" placeholder="E-mail" />
+                    </div> 
+                    <div class="champ">
+                        <input type="password" name="password" placeholder="Password" />                    
+                    </div> 
+                    <input type="submit" name="incription" value="S'inscrire"/>    
+                    <button onclick="View.signIn(this)">Se connecter</button>
+                               
+                </form>           
+            </div>
+        </div>            
        `;
     }
     static signIn() {
         View.displayHeader(main);
         main.innerHTML = /*html*/ `
         <div class="page">
-        <div id="box">
-            <form method="post" action="">
-                <h1>LOGIN</h1>
-            
-                <div class="champ">
-                    <input type="email" name=" email" placeholder="E-mail" />
-                </div> 
-                <div class="champ">
-                    <input :type="leType" name="pass" placeholder="Password" />
-                    <i class="far fa-eye-slash item"></i>
-                    <i class="far fa-eye item"></i>
-                </div>   
-                <input type="submit" value="Entrer" />
-            </form>
-            <button onclick="View.signUp(this)">Pas encore membre ?</button>
+            <div id="box">
+                <form method="post" action="">
+                    <h1>LOGIN</h1>
+                
+                    <div class="champ">
+                        <input type="email" name=" email" placeholder="E-mail" />
+                    </div> 
+                    <div class="champ">
+                        <input :type="leType" name="pass" placeholder="Password" />
+                        <i class="far fa-eye-slash item"></i>
+                        <i class="far fa-eye item"></i>
+                    </div>   
+                    <input type="submit" value="Entrer" />
+                </form>
+                <button onclick="View.signUp(this)">Pas encore membre ?</button>
+            </div>
         </div>
-    </div>
        `;
     }
     static showError(errorText) {
@@ -76,13 +76,11 @@ class View {
         return "";
     }
     static wall() {
-            View.displayHeader(main);
-            let boxArticle = document.createElement("article");
-            main.appendChild(boxArticle);
-            boxArticle.innerHTML = /*html*/ `
+        View.displayHeader(main);
+        let boxArticle = document.createElement("article");
+        main.appendChild(boxArticle);
+        boxArticle.innerHTML = /*html*/ `
                 <h1>On est bien connecté !</h1>
             `
-       
     }
-  
 }

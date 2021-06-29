@@ -15,7 +15,7 @@ const verifyPassword = require('../middleware/verifyPassword');
 // et les controllers d'authentification et de sécurité qui leur sont appliquées
 
 // Chiffre le mot de passe de l'utilisateur, ajoute l'utilisateur à la base dedonnées
-router.post('/signup', verifyPassword, userCtrl.signup); // Crée un nouvel utilisateur
+router.post('/signup', userCtrl.signup); // Crée un nouvel utilisateur
 // Vérifie les informations d'identification de l'utilisateur, en renvoyant l'identifiant userID depuis la base de données et un TokenWeb JSON signé(contenant également l'identifiant userID)
 router.post('/login', userCtrl.login); // Connecte un utilisateur
 // router.put('/modify', userCtrl.modify);

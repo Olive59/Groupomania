@@ -17,6 +17,7 @@ class Controller {
     }
     static signUp(form) {
         var formData = Controller.getFormData(new FormData(form));
+        console.log("formData=", formData);
         Model.post(serverUrl + '/api/user/signup', JSON.stringify(formData))
             .then(function (response) {
                 let user = JSON.parse(response);
