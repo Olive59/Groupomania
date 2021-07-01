@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require ('path');
-
+const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const nocache = require('nocache');
 
@@ -37,6 +37,7 @@ app.use(helmet());
 app.use(nocache());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(bodyParser.json()); 
 
 app.use('/api/comments', commentRoutes);
 app.use('/api/article', articleRoutes);

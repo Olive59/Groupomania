@@ -48,18 +48,18 @@ class View {
         main.innerHTML = /*html*/ `
         <div class="page">
             <div id="box">
-                <form method="post" action="">
+                <form method="post" onsubmit="Controller.signIn(this); return false;">
                     <h1>LOGIN</h1>
                 
                     <div class="champ">
                         <input type="email" name=" email" placeholder="E-mail" />
                     </div> 
                     <div class="champ">
-                        <input :type="leType" name="pass" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" />
                         <i class="far fa-eye-slash item"></i>
                         <i class="far fa-eye item"></i>
                     </div>   
-                    <input type="submit" value="Entrer" />
+                    <button onclick="View.wall(this)">Se connecter</button>
                 </form>
                 <button onclick="View.signUp(this)">Pas encore membre ?</button>
             </div>
@@ -80,7 +80,34 @@ class View {
         let boxArticle = document.createElement("article");
         main.appendChild(boxArticle);
         boxArticle.innerHTML = /*html*/ `
-                <h1>On est bien connecté !</h1>
+        <div class="page">
+            <div id="articleWall">
+                <a href="articleSeul.html">
+                <div class="articleBox">
+                    <div>
+                        <div class="infoUser marginBottom">   
+                            <img src="2.png" alt="">
+                            <p>Olivier</p>
+                            
+                            <p>il y a 20 minutes
+        
+                            </p>
+                        </div>    
+                </div>
+                    <div class="colorText center marginBottom">titre</div>
+                    <div class="imageText">
+                        <img class="imgImport" src="icon7.png" alt="">
+                    <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
+                    minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
+                    sequi adipisci.
+                    </div>
+                    
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
             `
     }
 }
