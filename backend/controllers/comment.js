@@ -78,6 +78,7 @@ exports.deleteComment = (req, res, next) => {
 };
 
 exports.getAllComment = (req, res, next) => {
+  console.log('dans comment.js')
   console.log('req=', req)
   comment.find().then(
     (comments) => {

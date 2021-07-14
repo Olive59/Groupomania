@@ -3,8 +3,8 @@ const database = require('../config/database');
 
 class User {
 
-  static save(name, email, password, callback) {
-    database.query('INSERT INTO users SET name = ?, email = ?, password = ?', [name, email, password], (error, result) => {
+  static save(user_name, email, password, callback) {
+    database.query('INSERT INTO users SET user_name = ?, email = ?, password = ?', [user_name, email, password], (error, result) => {
       if (error) {
         callback(error);
       } else {
@@ -30,8 +30,8 @@ class User {
 
         }});
     }
-    static deleteOne(userId, callback) {
-      database.query('DELETE FROM users WHERE id= ?', [userId], (error, result) => {
+    static deleteOne(id, callback) {
+      database.query('DELETE FROM users WHERE id= ?', [id], (error, result) => {
         if (error) {
           callback(error);
         } else {

@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const dotenv = require('dotenv');
-
+// utilisation du module 'dotenv' pour masquer les informations de connexion à la base de données à l'aide de variables d'environnement
 dotenv.config();
 
 const connection = mysql.createConnection({
@@ -11,5 +11,4 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-
 module.exports = connection;

@@ -1,17 +1,25 @@
-const User = require('../models/User');
-const Article = require('../models/Article');
-const Comment = require('../models/Comment');
+const User = require('../models/user');
+const Article = require('../models/article');
+const Comment = require('../models/comment');
+const { json } = require('body-parser');
 const fs = require('fs');
 
 exports.getAllArticle = (req, res, next) => {
-    Article.find(function(result) {
-        if (!result) {
-            return res.status(404).json({ error: "Une erreur est survenue, impossible de charger les articles !" });
-        } else {
-            return res.status(200).json({ result });
-        }
-    });
-}
+    console.log('req=', req)
+    Article.find().then(
+      (articles) => {
+        res.status(200).json(articles);
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({
+          error: error
+        });
+      }
+    );
+  };
+
+  
 
 exports.getOneArticle = (req, res, next) => {
     console.log('params.id=', req.params.id);
@@ -20,10 +28,10 @@ exports.getOneArticle = (req, res, next) => {
             return res.status(404).json({ error: "Une erreur est survenue, chargement de l'article impossible !" });
         } else {
             return res.status(200).json({ result });
-            // Comment.count(req.params.id, function(comments) {
-            //     result.commentCount = comments.count;
-            //     return res.status(200).json({ result });
-            // });
+            Comment.count(req.params.id, function(comments) {
+                result.commentCount = comments.count;
+                return res.status(200).json({ result });
+            });
         }
     });
 }
@@ -46,15 +54,15 @@ exports.postNewArticle = (req, res, next) => {
 }
 
 exports.modifyArticle = (req, res, next) => {
-    if (!req.body.title || !req.body.content || !req.body.authorId || !req.body.userId || !req.body.id) {
+    if (!req.body.title || !req.body.content || !req.body.id_user || !req.body.id) {
         return res.status(400).json({ error: 'Bad request !' });
     }
     Article.findOne(req.params.id, function(article) { // on va chercher l'article dans la base de données
         if (!article) {
             return res.status(404).json({ error: 'Article non trouvé !' });
         } else {
-            User.findOne("id", req.body.userId, function(user) {
-                if (user.admin != 1 && article.authorId != req.body.userId) {
+            User.findOne("id", req.body.id, function(user) {
+                if (user.admin != 1 && article.id_user != req.body.id) {
                     return res.status(400).json({ error: "Vous n'êtes pas l'auteur !" });
                 } else {
                     if (article.imageUrl || req.file) { // si l'article possède une image, on  la supprime

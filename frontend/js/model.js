@@ -43,6 +43,7 @@ class Model {
             req.onreadystatechange = function (aEvt) {
                 if (req.readyState == 4) {
                     if (req.status == 200 || req.status == 201) {
+                        console.log('dans model.js')
                         console.log("req=",req);
                         resolve(req.responseText);
                     } else {
