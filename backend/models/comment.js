@@ -7,11 +7,11 @@ let moment = require ('../config/moment')
 class Comment {
     static find(callback) {
         database.query(`
-            SELECT comments.id, comments.id_user, comments.posted_date, comments.title, comments.body, comments.img_url, users.user_name,
-            (SELECT COUNT(*) FROM comments WHERE comments.id_comment=comments.id) AS commentCount
+            SELECT comments.id, comments.id_user, comments.post_date, comments.body, users.user_name,
+            (SELECT COUNT(*) FROM comments WHERE comments.id=comments.id) AS commentCount
             FROM comments,users 
             WHERE comments.id_user = users.id 
-            ORDER BY comments.posted_date DESC`, (error, result) => {
+            ORDER BY comments.post_date DESC`, (error, result) => {
             if (error) {
                 callback(error);
             } else {
@@ -33,7 +33,7 @@ class Comment {
     }
 
     static findOne(id, callback) {
-        database.query(`SELECT comments.id, comments.id_user, comments.posted_date, comments.title, comments.body, comments.img_url, users.user_name 
+        database.query(`SELECT comments.id, comments.id_user, comments.post_date, comments.body, users.user_name 
                             FROM comments 
                             INNER JOIN users
                                 ON comments.id_user = users.id
@@ -48,7 +48,7 @@ class Comment {
     }
 
     static save(commentObject, callback) {
-        database.query('INSERT INTO comments SET id_user = ?, title = ?, body = ?, img_url = ?', [commentObject.id_user,
+        database.query('INSERT INTO comments SET id_user = ?, body = ?', [commentObject.id_user,
             sanitizeHtml(commentObject.title, { allowedTags: [], allowedAttributes: {} }),
             sanitizeHtml(commentObject.body, { allowedTags: [], allowedAttributes: {} }),
             commentObject.img_url
@@ -61,7 +61,7 @@ class Comment {
         });
     }
     static updateOne(commentObject, callback) {
-        database.query('UPDATE comments SET id_user = ?, title = ?, body = ?, img_url = ? WHERE id = ?', [commentObject.id_user,
+        database.query('UPDATE comments SET id_user = ?, body = ?, WHERE id = ?', [commentObject.id_user,
                 sanitizeHtml(commentObject.title, { allowedTags: [], allowedAttributes: {} }),
                 sanitizeHtml(commentObject.body, { allowedTags: [], allowedAttributes: {} }),
                 commentObject.img_url, commentObject.id

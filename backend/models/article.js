@@ -1,7 +1,7 @@
 const { createPool } = require('mysql');
 const database = require('../config/database');
 // const sanitizeHtml = require('sanitize-html');
-let moment = require ('../config/moment')
+// let moment = require ('../config/moment')
 
 class Article {
     static find(callback) {
@@ -18,22 +18,22 @@ class Article {
             }
         });
     }
+    static getAllPost() {
+        let sql = `
+        SELECT articles.id, articles.id_user, articles.posted_date, articles.title, articles.body, articles.img_url, users.user_name,
+        (SELECT COUNT(*) FROM comments WHERE comments.id_article=articles.id) AS commentCount
+        FROM articles,users 
+         WHERE articles.id_user = users.id 
+        ORDER BY articles.posted_date DESC`;
+        return new Promise ((resolve) => {
+            database.query(sql, function (error, result, fields){
+                if (error) throw error;
+                resolve(result);
+            })
+        }) 
+    };
 
-    //  static createArticle = (req, res, next) => {
-    //     console.log('req.body=', req.body);
-    //     const articleObject = JSON.parse(req.body.article);
-    //     const article = new article({
-    //       ...articleObject,
-    //       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    //     });
-    //     article.save()
-    //       .then(() => res.status(201).json({
-    //         message: 'Objet enregistré !'
-    //       }))
-    //       .catch(error => res.status(400).json({
-    //         error
-    //       }));
-    //   };
+
 
     static findByUserId(userId, callback) {
         database.query(`SELECT * 

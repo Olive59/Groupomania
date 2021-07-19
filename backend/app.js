@@ -4,9 +4,9 @@ const path = require('path');
 // const bodyParser = require('body-parser');
 // const helmet = require('helmet');
 // const nocache = require('nocache');
-const userRoutes = require('./routes/user');
+// const userRoutes = require('./routes/user');
 const articleRoutes = require('./routes/article');
-const commentRoutes = require('./routes/comment');
+// const commentRoutes = require('./routes/comment');
 
 
 const app = express();
@@ -29,13 +29,14 @@ app.use((req, res, next) => {
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use(express.json()); app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
 Source: https://prograide.com/pregunta/5098/bodyparser-est-obsolte-express-4
 
 
 app.use('/api/article', articleRoutes);
-app.use('/api/comment', commentRoutes);
-app.use('/api/user', userRoutes);
+// app.use('/api/comment', commentRoutes);
+// app.use('/api/user', userRoutes);
 
 
 module.exports = app;

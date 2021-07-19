@@ -6,16 +6,16 @@ body {
 	font-family: 'Comic Sans MS', arial;
 	margin: 0;
 	padding:0;
+	height: 100vh;
 }
-footer{
-	
+footer,header{
+	height: 30%;
 	width: auto;
 }
 .logo{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 150px;
 }
 .page{
 	display: flex;
@@ -58,7 +58,79 @@ h3 {
 h1, h2{ 
 	color: royalblue; 	
 	}
+	#box {
+		width: 410px;
+		background: url('images/icon7.png');	
+		text-align: center;
+		align-items: center;
+		color: #333;
+		border: 1px solid black;
+		border-radius: 15px;	
+		margin: 60px;
+	}
+	.champ {
+		width: 260px;
+		height: 40px;
+		background: #6a0ae9;
+		margin: 30px auto;
+		border-radius: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+	.champ:hover {
+		background: #0c1adb;
+	}
+	.champ input {
+		background: none;
+		border: none;
+		outline: none;
+		font-size: 20px;	
+		text-align: center;
+		color: aqua;
+	}
+	.champsArticle{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.login, .goLogin {
+		width: 260px;
+		height: 40px;
+		background: rgb(17, 0, 255);
+		margin: 10px auto;
+		border-radius: 10px;
+		border: none;
+		color: aqua;
+		font-size: 22px;
+		cursor: pointer;	
+	}
+	.login:hover, .goLogin:hover {
+		background: rgb(23, 179, 83);
+		color: #fff;	
+	}
 
+	.champCreationArticle {
+		width: 260px;
+		background: #6a0ae9;
+		margin: 30px auto;
+		border-radius: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		text-align: center;
+	}
+	
+
+	.centerButton
+	{
+		justify-content: center;	
+		text-align: center;
+		align-items: center;
+	}
 /* ******************************************* */
 /* ARTIClE */
 /* ******************************************* */
@@ -82,35 +154,7 @@ h1, h2{
 	border-radius: 10px;
 	border: 2px solid black;
 }
-#box {
-	width: 410px;
-	background: url('images/icon7.png');	
-	text-align: center;
-	color: #333;
-	border: 1px solid black;
-	border-radius: 15px;	
-	margin: 60px;
-}
-.champ {
-	width: 260px;
-	height: 40px;
-	background: #6a0ae9;
-	margin: 30px auto;
-	border-radius: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.champ:hover {
-	background: #0c1adb;
-}
-.champ input {
-	background: none;
-	border: none;
-	outline: none;
-	font-size: 15px;	
-	text-align: center;
-}
+
 
 .borderInput{ 
 border: 2px solid blue;
@@ -131,6 +175,7 @@ input, textarea{
 	margin: 20px;
 	background: rgb(214, 204, 203);
 	overflow:hidden;
+	padding:  5px;
 }
 .imgImport{
 	width: 80px;
@@ -206,33 +251,26 @@ input, textarea{
 /* ******************************************* */
 
 #voirPass {
-    color:aqua;
-    right: 25px;
-    font-size: 22px;
+    color:black;
+    font-size: 18px;
     cursor: pointer;
 }
-#voirPass:hover {
-    color: aqua;
-}
+
 ::placeholder {
     color: aqua;
-}
-.login {
-	width: 260px;
-	height: 40px;
-	background: rgb(17, 0, 255);
-	margin: 10px auto;
-	border-radius: 10px;
-	border: none;
-	color: #fff;
-	font-size: 22px;
-	cursor: pointer;	
-}
-.login:hover {
-	background: rgb(25, 94, 51);
-	color: #fff;	
+	font-size: 18px;
 }
 
+.fa-eye-slash{
+	padding-top:20px;
+}
+.fa-eye{
+	padding-top:20px;
+}
+
+#pass{
+	padding-top:10px;
+}
 /* ******************************************* */
 /* INSCIPTION */
 /* ******************************************* */
@@ -250,7 +288,7 @@ input, textarea{
 }
 
 .inscription:hover, .backLogin:hover {
-	background: rgb(25, 94, 51);
+	background: rgb(23, 179, 83);
 	color: white;	
 }
 
@@ -260,21 +298,35 @@ input, textarea{
 
 .articleCreated{
 	width: 350px;
-	margin: 60px auto;
 	border: 3px solid #0c1adb;
 	box-shadow: 0px 2px 1px #0c1adb;
 	border-radius: 10px;
 	background: #fff;
 }
 
+
 /* ******************************************* */
 /* RESPONSIVE */
 /* ******************************************* */
-@media screen and (max-width: 500px) {
-	.big 
-{
-	display: none;
-}
 
+.responsiveLogo
+{
+	display: none;	
+} 
+
+@media screen and (max-width: 450px)
+ {
+	.bigLogo 
+	{
+		display: none;
+	}
+	.responsiveLogo
+	{
+		display: inline-block;
+	}
+	.articleBox{
+		width: 200px;
+		height: 200px;
+	}
 }
 

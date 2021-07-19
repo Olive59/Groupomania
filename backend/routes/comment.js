@@ -1,14 +1,14 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const auth = require('../middleware/auth');
+// const auth = require('../middleware/auth');
 
-const commentCtrl = require('../controllers/comment');
+// const commentCtrl = require('../controllers/comment');
 
-router.get('/:id', auth, commentCtrl.getAllComment);
-router.post('/', auth, commentCtrl.createComment);
-router.put('/:id', auth, commentCtrl.modifyComment);
-router.delete('/:id', auth, commentCtrl.deleteComment);
+// router.get('/:id', auth, commentCtrl.getAllComment);
+// router.post('/', auth, commentCtrl.createComment);
+// router.put('/:id', auth, commentCtrl.modifyComment);
+// router.delete('/:id', auth, commentCtrl.deleteComment);
 
 
-module.exports = router;
+// module.exports = router;
