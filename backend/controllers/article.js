@@ -1,5 +1,6 @@
 const Article = require('../models/article');
 const fs = require('fs');
+let articles = [];
 
 exports.createArticle = (req, res, next) => {
   console.log('req.body=', req.body);
@@ -80,9 +81,8 @@ exports.deleteArticle = (req, res, next) => {
 exports.getAllArticle = (req, res, next) => {
   console.log('req=', req)
   Article.getAllPost().then(
-    (articles) => {
+    (articles) => {      
       res.status(200).json(articles);
-      console.log(articles);
     }
   ).catch(
     (error) => {

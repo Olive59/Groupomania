@@ -173,21 +173,28 @@ input, textarea{
 	border-radius: 10px;
 	border: 2px solid royalblue;
 	margin: 20px;
-	background: rgb(214, 204, 203);
+	background: rgb(238, 230, 229);
 	overflow:hidden;
 	padding:  5px;
 }
 .imgImport{
-	width: 80px;
+	width:auto;
 	height: 80px;
 	margin: 10px 10px;
-	justify-content: center;
 }
 .infoUser{
+	color: rgb(26, 55, 143);
 	margin:0 5px;
 	border-bottom: 2px dashed royalblue;
 	display: flex;
 	justify-content: space-between;
+}
+.userName{
+	
+	text-transform: uppercase;
+}
+.postedDate{
+font-size: 14px;
 }
 .center{
 	text-align: center;
@@ -195,9 +202,10 @@ input, textarea{
 .justifText{
 	text-align: justify;
 }
-.imageText{
+.imgText{
 	display: flex;
 	justify-content: space-around;
+	
 }
 .marginBottom{
 	margin-bottom: 10px;

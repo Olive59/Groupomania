@@ -79,121 +79,33 @@ class View {
         View.displayHeader(main);
         let boxArticle = document.createElement("article");
         main.appendChild(boxArticle);
-        boxArticle.innerHTML = /*html*/
+        boxArticle.innerHTML = ( 
+        articles    
+        .map(article => ( /*html*/
         `
             <div class="page">
-                <div id="articleWall">
+                <div id="articleWall"> 
                     <a href="./articleSeul.html">
-                    <div class="articleBox">
-                        <div>
-                            <div class="infoUser marginBottom">   
-                                <img src="2.png" alt="">
-                                <p>Olivier</p>                            
-                                <p>il y a 20 minutes      
-                                </p>
+                        <div class="articleBox">
+                            <div class="infoUser marginBottom"> 
+                                <p class="userName">${article.user_name}</p>                        
+                                <p class="postedDate">${article.posted_date}</p>
+                            </div> 
+                            <div class="colorText center marginBottom">${article.title}</div>  
+                            <div class="imgText" >
+                                <img class="imgImport" src="./images/icon7.png" alt="">
+                                <div class="justifText">${article.body}</div>    
                             </div>    
                         </div>
-                        <div class="colorText center marginBottom">titre</div>
-                        <div class="imageText">
-                            <img class="imgImport" src="images/icon7.png" alt="">
-                            <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
-                            minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
-                            sequi adipisci.
-                            </div>                    
-                        </div>
-                    </div>
-                </a>
-                <a href="integration/articleSeul.html">
-                    <div class="articleBox">
-                        <div>
-                            <div class="infoUser marginBottom">   
-                                <img src="2.png" alt="">
-                                <p>Olivier</p>                            
-                                <p>il y a 20 minutes      
-                                </p>
-                            </div>    
-                        </div>
-                        <div class="colorText center marginBottom">titre</div>
-                        <div class="imageText">
-                            <img class="imgImport" src="images/icon7.png" alt="">
-                            <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
-                            minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
-                            sequi adipisci.
-                            </div>                    
-                        </div>
-                    </div>
-                </a>
-                <a href="integration/articleSeul.html">
-                    <div class="articleBox">
-                        <div>
-                            <div class="infoUser marginBottom">   
-                                <img src="2.png" alt="">
-                                <p>Olivier</p>                            
-                                <p>il y a 20 minutes      
-                                </p>
-                            </div>    
-                        </div>
-                        <div class="colorText center marginBottom">titre</div>
-                        <div class="imageText">
-                            <img class="imgImport" src="images/icon7.png" alt="">
-                            <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
-                            minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
-                            sequi adipisci.
-                            </div>                    
-                        </div>
-                    </div>
-                </a>
-                <a href="integration/articleSeul.html">
-                    <div class="articleBox">
-                        <div>
-                            <div class="infoUser marginBottom">   
-                                <img src="2.png" alt="">
-                                <p>Olivier</p>                            
-                                <p>il y a 20 minutes      
-                                </p>
-                            </div>    
-                        </div>
-                        <div class="colorText center marginBottom">titre</div>
-                        <div class="imageText">
-                            <img class="imgImport" src="images/icon7.png" alt="">
-                            <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
-                            minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
-                            sequi adipisci.
-                            </div>                    
-                        </div>
-                    </div>
-                </a>
-                <a href="integration/articleSeul.html">
-                    <div class="articleBox">
-                        <div>
-                            <div class="infoUser marginBottom">   
-                                <img src="2.png" alt="">
-                                <p>Olivier</p>                            
-                                <p>il y a 20 minutes      
-                                </p>
-                            </div>    
-                        </div>
-                        <div class="colorText center marginBottom">titre</div>
-                        <div class="imageText">
-                            <img class="imgImport" src="images/icon7.png" alt="">
-                            <div class="justifText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Quisquam esse, aspernatur neque vel temporibus harum tempore unde culpa,
-                            minus vitae deserunt laborum? Nulla provident obcaecati in nihil officia
-                            sequi adipisci.
-                            </div>                    
-                        </div>
-                    </div>
-                </a>
-            </div>            
-        </div>
-        <div class='centerButton'>
-            <button class='goLogin' >Créer votre article </button>
-        </div>
-    `
+                    </a>                        
+                </div>            
+            </div>
+                <div class='centerButton'>
+                    <button class='goLogin' >Créer votre article </button>
+                </div>
+            `
+            )).join('')
+        );
     }
     
 }

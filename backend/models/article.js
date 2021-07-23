@@ -4,6 +4,7 @@ const database = require('../config/database');
 // let moment = require ('../config/moment')
 
 class Article {
+    
     static find(callback) {
         database.query(`
             SELECT articles.id, articles.id_user, articles.posted_date, articles.title, articles.body, articles.img_url, users.user_name,
@@ -27,8 +28,8 @@ class Article {
         ORDER BY articles.posted_date DESC`;
         return new Promise ((resolve) => {
             database.query(sql, function (error, result, fields){
-                if (error) throw error;
-                resolve(result);
+             if (error) throw error;
+              resolve(result);
             })
         }) 
     };
