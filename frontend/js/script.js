@@ -11,3 +11,12 @@ voirPass.addEventListener('click', function() {
         pass.type = "password";
     }
 });
+
+const dateParser = (date) => {
+    let newDate = new Date(date).toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return newDate;
+  }; 

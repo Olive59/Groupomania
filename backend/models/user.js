@@ -1,8 +1,6 @@
 const database = require('../config/database');
 
-
 class User {
-
   static save(user_name, email, password, callback) {
     database.query('INSERT INTO users SET user_name = ?, email = ?, password = ?', [user_name, email, password], (error, result) => {
       if (error) {
@@ -23,22 +21,23 @@ class User {
   }
   static updateOne(field, value, id, callback) {
     database.query('UPDATE users SET ' + field + ' = ? WHERE id= ?', [value, id], (error, result) => {
-        if (error) {
-          callback(error);
-        } else {
-          callback(null);
+      if (error) {
+        callback(error);
+      } else {
+        callback(null);
 
-        }});
-    }
-    static deleteOne(id, callback) {
-      database.query('DELETE FROM users WHERE id= ?', [id], (error, result) => {
-        if (error) {
-          callback(error);
-        } else {
-          callback(null);
-        }
-      });
-    }
+      }
+    });
   }
+  static deleteOne(id, callback) {
+    database.query('DELETE FROM users WHERE id= ?', [id], (error, result) => {
+      if (error) {
+        callback(error);
+      } else {
+        callback(null);
+      }
+    });
+  }
+}
 
-  module.exports = User;
+module.exports = User;

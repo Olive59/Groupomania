@@ -2,7 +2,7 @@ const mySql = require ('mysql');
 const { createPool } = require('mysql');
 const database = require('../config/database');
 const sanitizeHtml = require('sanitize-html');
-let moment = require ('../config/moment')
+
 
 class Comment {
     static find(callback) {

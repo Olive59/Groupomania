@@ -1,6 +1,6 @@
 /**
- * Le but de cette classe est d'encapsuler les méhtodes pour pouvoir faire
- * les appels Ajax. 
+ * Le but de cette classe est d'encapsuler les méhtodes
+ * pour pouvoir faire les appels Ajax. 
  */
 class Model {
 

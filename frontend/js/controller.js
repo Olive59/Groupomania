@@ -9,13 +9,13 @@ class Controller {
     }
     static wall() {
         if (!localStorage.getItem("userId")) {
-            View.signIn();
+            View.signin();
             return;
         }
-        View.wall();
+        View.wall(); 
         
     }
-    static signUp(form) {
+    static signup(form) {
         var formData = Controller.getFormData(new FormData(form));
         console.log("formData=", formData);
         Model.post(serverUrl + '/api/user/signup', JSON.stringify(formData))
@@ -30,7 +30,7 @@ class Controller {
                 View.showError(JSON.parse(req.responseText).error);
             })
     }
-    static signIn(form) {
+    static signin(form) {
         var formData = Controller.getFormData(new FormData(form));
         Model.post(serverUrl + '/api/user/login', JSON.stringify(formData))
             .then(function (response) {
@@ -46,6 +46,6 @@ class Controller {
     }
     static logout() {
         localStorage.clear();
-        View.signIn();
+        View.signin();
     }
 }

@@ -24,7 +24,7 @@ class Article {
         SELECT articles.id, articles.id_user, articles.posted_date, articles.title, articles.body, articles.img_url, users.user_name,
         (SELECT COUNT(*) FROM comments WHERE comments.id_article=articles.id) AS commentCount
         FROM articles,users 
-         WHERE articles.id_user = users.id 
+        WHERE articles.id_user = users.id 
         ORDER BY articles.posted_date DESC`;
         return new Promise ((resolve) => {
             database.query(sql, function (error, result, fields){

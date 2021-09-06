@@ -1,3 +1,5 @@
+
+
 /* ******************************************* */
 /* GENERAL */
 /* ******************************************* */
@@ -6,10 +8,8 @@ body {
 	font-family: 'Comic Sans MS', arial;
 	margin: 0;
 	padding:0;
-	height: 100vh;
 }
 footer,header{
-	height: 30%;
 	width: auto;
 }
 .logo{
@@ -20,8 +20,7 @@ footer,header{
 .page{
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	height: 60%;
+	align-items: center;	
 	background: #333;
 }
 h1 {
@@ -135,17 +134,7 @@ h1, h2{
 /* ARTIClE */
 /* ******************************************* */
 
-#articleWall {
-	width: 80%;
-	background: url('images/icon7.png');	
-	color: #333;
-	border: 2px solid #333;
-	border-radius: 15px;
-	margin: 40px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;	
-}	
+
 .imageArticle{
 	margin: 10px auto;
 	width: 150px;
@@ -153,6 +142,18 @@ h1, h2{
 	background: #fff;
 	border-radius: 10px;
 	border: 2px solid black;
+}
+
+.listeArticle{
+	display:flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	background: url('images/icon7.png');	
+	color: #333;
+	border: 2px solid #333;
+	border-radius: 15px;
+	margin: 20px;
 }
 
 
